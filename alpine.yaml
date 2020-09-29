@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alpine1
+  labels:
+    app: alpine1
+spec:
+  containers:
+      - image: 862453439263.dkr.ecr.eu-west-2.amazonaws.com/alpine:3.12.0
+    command:
+      - sleep
+      - "3600"
+    imagePullPolicy: IfNotPresent
+    name: busybox
+  restartPolicy: Always
+  nodeSelector:
+    WorkerType: private
